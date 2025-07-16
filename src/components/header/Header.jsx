@@ -11,6 +11,10 @@ function Header() {
   const [mobileAtsDropdown, setMobileAtsDropdown] = useState(false);
   const [mobileProductsDropdown, setMobileProductsDropdown] = useState(false);
   const [mobileConsultationDropdown, setMobileConsultationDropdown] = useState(false);
+  // Dropdown close timers
+  const atsDropdownTimer = React.useRef();
+  const productsDropdownTimer = React.useRef();
+  const consultationDropdownTimer = React.useRef();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -77,8 +81,13 @@ function Header() {
                 <div
                   key={link.label}
                   className="relative group"
-                  onMouseEnter={() => setAtsDropdownOpen(true)}
-                  onMouseLeave={() => setAtsDropdownOpen(false)}
+                  onMouseEnter={() => {
+                    clearTimeout(atsDropdownTimer.current);
+                    setAtsDropdownOpen(true);
+                  }}
+                  onMouseLeave={() => {
+                    atsDropdownTimer.current = setTimeout(() => setAtsDropdownOpen(false), 180);
+                  }}
                 >
                   <a
                     href={link.href}
@@ -93,8 +102,13 @@ function Header() {
                   {/* Dropdown */}
                   <div
                     className={`absolute left-0 top-full mt-2 min-w-[180px] bg-white border border-gray-100 shadow-lg rounded-xl py-2 opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto pointer-events-none transition-all duration-200 z-50 ${atsDropdownOpen ? 'opacity-100 pointer-events-auto' : ''}`}
-                    onMouseEnter={() => setAtsDropdownOpen(true)}
-                    onMouseLeave={() => setAtsDropdownOpen(false)}
+                    onMouseEnter={() => {
+                      clearTimeout(atsDropdownTimer.current);
+                      setAtsDropdownOpen(true);
+                    }}
+                    onMouseLeave={() => {
+                      atsDropdownTimer.current = setTimeout(() => setAtsDropdownOpen(false), 180);
+                    }}
                   >
                     {link.dropdown.map((item) => (
                       <a
@@ -114,8 +128,13 @@ function Header() {
                 <div
                   key={link.label}
                   className="relative group"
-                  onMouseEnter={() => setProductsDropdownOpen(true)}
-                  onMouseLeave={() => setProductsDropdownOpen(false)}
+                  onMouseEnter={() => {
+                    clearTimeout(productsDropdownTimer.current);
+                    setProductsDropdownOpen(true);
+                  }}
+                  onMouseLeave={() => {
+                    productsDropdownTimer.current = setTimeout(() => setProductsDropdownOpen(false), 180);
+                  }}
                 >
                   <a
                     href={link.href}
@@ -130,8 +149,13 @@ function Header() {
                   {/* Dropdown */}
                   <div
                     className={`absolute left-0 top-full mt-2 min-w-[200px] bg-white border border-gray-100 shadow-lg rounded-xl py-2 opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto pointer-events-none transition-all duration-200 z-50 ${productsDropdownOpen ? 'opacity-100 pointer-events-auto' : ''}`}
-                    onMouseEnter={() => setProductsDropdownOpen(true)}
-                    onMouseLeave={() => setProductsDropdownOpen(false)}
+                    onMouseEnter={() => {
+                      clearTimeout(productsDropdownTimer.current);
+                      setProductsDropdownOpen(true);
+                    }}
+                    onMouseLeave={() => {
+                      productsDropdownTimer.current = setTimeout(() => setProductsDropdownOpen(false), 180);
+                    }}
                   >
                     {link.dropdown.map((item) => (
                       <a
@@ -151,8 +175,13 @@ function Header() {
                 <div
                   key={link.label}
                   className="relative group"
-                  onMouseEnter={() => setConsultationDropdownOpen(true)}
-                  onMouseLeave={() => setConsultationDropdownOpen(false)}
+                  onMouseEnter={() => {
+                    clearTimeout(consultationDropdownTimer.current);
+                    setConsultationDropdownOpen(true);
+                  }}
+                  onMouseLeave={() => {
+                    consultationDropdownTimer.current = setTimeout(() => setConsultationDropdownOpen(false), 180);
+                  }}
                 >
                   <a
                     href={link.href}
@@ -167,8 +196,13 @@ function Header() {
                   {/* Dropdown */}
                   <div
                     className={`absolute left-0 top-full mt-2 min-w-[200px] bg-white border border-gray-100 shadow-lg rounded-xl py-2 opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto pointer-events-none transition-all duration-200 z-50 ${consultationDropdownOpen ? 'opacity-100 pointer-events-auto' : ''}`}
-                    onMouseEnter={() => setConsultationDropdownOpen(true)}
-                    onMouseLeave={() => setConsultationDropdownOpen(false)}
+                    onMouseEnter={() => {
+                      clearTimeout(consultationDropdownTimer.current);
+                      setConsultationDropdownOpen(true);
+                    }}
+                    onMouseLeave={() => {
+                      consultationDropdownTimer.current = setTimeout(() => setConsultationDropdownOpen(false), 180);
+                    }}
                   >
                     {link.dropdown.map((item) => (
                       <a

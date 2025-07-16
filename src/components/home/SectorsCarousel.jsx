@@ -1,4 +1,8 @@
-import { cn } from "../../lib/utils";
+// Simple cn replacement
+function cn(...args) {
+  return args.filter(Boolean).join(' ');
+}
+
 import {
   IconCarFilled,
   IconGlassFilled,
