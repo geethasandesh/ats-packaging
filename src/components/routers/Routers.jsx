@@ -18,7 +18,7 @@ import ProjectPlanning from '../pages/ProjectPlanning'
 import PumpTrigger from '../pages/PumpTrigger'
 import Sectors from '../pages/Sectors'
 import Team from '../pages/Team'
-import Trunkey from '../pages/Trunkey'
+import Trunkey from '../pages/TrunkeyAutomation'
 import TrunkeyFillingLines from '../pages/TrunkeyFillingLines'
 
 function Routers() {
@@ -42,7 +42,7 @@ function Routers() {
       <Route path="/pump-trigger" element={<PumpTrigger />} />
       <Route path="/sectors" element={<Sectors />} />
       <Route path="/team" element={<Team />} />
-      <Route path="/trunkey" element={<Trunkey />} />
+      <Route path="/trunkey-automation" element={<Trunkey />} />
       <Route path="/trunkey-filling-lines" element={<TrunkeyFillingLines />} />
     </Routes>
   )

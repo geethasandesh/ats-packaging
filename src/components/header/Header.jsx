@@ -51,6 +51,7 @@ function Header() {
         { href: '/project-management', label: 'Project Management' },
         { href: '/project-planning', label: 'Project Planning' },
         { href: '/lifecycle-management', label: 'Lifecycle Management' },
+        { href: '/trunkey-automation', label: 'Trun-Key Automation' },
       ],
     },
     { href: '/sectors', label: 'SECTORS' },
