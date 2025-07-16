@@ -64,13 +64,13 @@ function Header() {
       }`}
     >
       <div className="w-full flex flex-row items-center justify-between px-2 sm:px-4 md:px-8 h-12 md:h-14 gap-2 md:gap-0">
-        {/* Logo - flush left */}
+        {/* Logo - left */}
         <a href="/" className="flex items-center flex-shrink-0 h-full">
-          <img src={atsLogo} alt="ATS Logo" className="h-8 md:h-10 w-auto object-contain" />
+          <img src={atsLogo} alt="ATS Logo" className="h-12 md:h-16 w-auto object-contain" />
         </a>
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex flex-1 items-center justify-end gap-2 sm:gap-6 text-base font-medium flex-wrap h-full">
-          {navLinks.map((link) => {
+        {/* Desktop Navigation - center */}
+        <nav className="hidden md:flex flex-1 items-center justify-center gap-2 sm:gap-6 text-base font-medium flex-wrap h-full">
+          {navLinks.filter(link => link.label !== 'CONTACT US').map((link) => {
             if (link.dropdown && link.label === 'ATS AT A GLANCE') {
               return (
                 <div
@@ -194,6 +194,16 @@ function Header() {
             );
           })}
         </nav>
+        {/* CONTACT US Button - right */}
+        <div className="hidden md:flex items-center ml-2">
+          <a
+            href="/contact"
+            className="px-3 py-1.5 text-white font-sans font-semibold rounded bg-orange-500 hover:bg-orange-600 transition-colors shadow text-sm"
+            style={{ minWidth: '80px', textAlign: 'center' }}
+          >
+            CONTACT US
+          </a>
+        </div>
         {/* Mobile Nav Toggle */}
         <button className="md:hidden bg-white/70 backdrop-blur-xl border border-white/30 rounded-xl p-2 shadow-md ml-auto" onClick={() => setNavOpen(!navOpen)}>
           <div className="flex flex-col gap-1">
@@ -299,6 +309,18 @@ function Header() {
                       </div>
                     )}
                   </div>
+                );
+              }
+              if (link.label === 'CONTACT US') {
+                return (
+                  <a
+                    key={link.href}
+                    className="block font-sans font-semibold py-1.5 px-3 rounded bg-orange-500 text-white shadow hover:bg-orange-600 transition mt-2 text-center text-sm"
+                    onClick={() => setNavOpen(false)}
+                    style={{ minWidth: '80px' }}
+                  >
+                    {link.label}
+                  </a>
                 );
               }
               return (

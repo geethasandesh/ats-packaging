@@ -44,19 +44,19 @@ const HeroVideo = () => {
           </div>
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
-            Elevate Your Brand<br />With a High-<br className="hidden md:block" />Performing Website
+            Advanced Packaging Solutions<br />& Machinery
           </h1>
           {/* Subheadline */}
           <p className="text-lg text-gray-600 mb-8">
-            At Volium, we craft high-performance websites designed to help your brand grow, convert, and stand out.
+            ATS Packaging provides the most complete range of packaging machinery and automation solutions for a wide range of industries, including food & beverage, pharmaceutical, personal care, and more. With over 35 years of experience, we deliver precision, quality, and reliability.
           </p>
           {/* CTA Buttons */}
           <div className="flex items-center gap-4">
             <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg shadow transition-colors">
-              Let's talk
+              Get in Touch
             </button>
             <button className="text-gray-800 font-semibold underline underline-offset-2 hover:text-orange-500 transition-colors">
-              See how it works
+              Explore Our Solutions
             </button>
           </div>
         </div>
@@ -94,15 +94,15 @@ const HeroVideo = () => {
               playsInline
             />
             {/* Mute button */}
-            <button
-              onClick={handleMuteToggle}
-              aria-label={muted ? 'Unmute video' : 'Mute video'}
+        <button
+          onClick={handleMuteToggle}
+          aria-label={muted ? 'Unmute video' : 'Mute video'}
               className="absolute bottom-4 left-4 bg-black/60 hover:bg-black/80 text-white rounded-full p-2 text-xl transition-colors focus:outline-none focus:ring-2 focus:ring-white"
-            >
-              {muted ? '🔇' : '🔊'}
-            </button>
-          </div>
-        </div>
+        >
+          {muted ? '🔇' : '🔊'}
+        </button>
+      </div>
+    </div>
       </div>
     </section>
   );
