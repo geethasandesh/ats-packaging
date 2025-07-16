@@ -39,7 +39,7 @@ function Header() {
         { href: '/capping-machines', label: 'Capping Machines' },
         { href: '/bottle-unscramblers', label: 'Bottle Unscramblers' },
         { href: '/pump-trigger', label: 'Pump Trigger' },
-        { href: '/trunkey', label: 'Trunkey' },
+        { href: '/trunkey-lines', label: 'Trunkey' },
         { href: '/bespoke-packaging', label: 'Bespoke Packaging' },
         { href: '/food', label: 'Food' },
       ],

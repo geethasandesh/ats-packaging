@@ -63,7 +63,6 @@ export default function LifecycleManagement() {
             src={lifecycleImg}
             alt="Lifecycle Management"
             className="rounded-2xl shadow-lg object-cover bg-white"
-            style={{ maxWidth: '320px', maxHeight: '220px', width: '100%', height: 'auto', margin: '0 auto' }}
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             whileHover={{ scale: 1.04, boxShadow: '0 8px 32px 0 rgba(0,0,0,0.10)' }}

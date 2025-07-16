@@ -19,6 +19,7 @@ import PumpTrigger from '../pages/PumpTrigger'
 import Sectors from '../pages/Sectors'
 import Team from '../pages/Team'
 import Trunkey from '../pages/TrunkeyAutomation'
+import TRunkey from '../pages/Trunkey'
 import TrunkeyFillingLines from '../pages/TrunkeyFillingLines'
 
 function Routers() {
@@ -33,6 +34,7 @@ function Routers() {
       <Route path="/consultation" element={<Consultation />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/food" element={<Food />} />
+      <Route path="/Trunkey-lines" element={<TRunkey/>} />
       <Route path="/lifecycle-management" element={<LifecycleManagement />} />
       <Route path="/news" element={<News />} />
       <Route path="/partners" element={<Partners />} />
