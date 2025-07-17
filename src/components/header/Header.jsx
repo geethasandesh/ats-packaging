@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import atsLogo from '../../assets/advanced_tooling_systems_uk_logo.png';
+import { Link } from 'react-router-dom';
 
 function Header() {
   const [navOpen, setNavOpen] = useState(false);
@@ -11,10 +12,6 @@ function Header() {
   const [mobileAtsDropdown, setMobileAtsDropdown] = useState(false);
   const [mobileProductsDropdown, setMobileProductsDropdown] = useState(false);
   const [mobileConsultationDropdown, setMobileConsultationDropdown] = useState(false);
-  // Dropdown close timers
-  const atsDropdownTimer = React.useRef();
-  const productsDropdownTimer = React.useRef();
-  const consultationDropdownTimer = React.useRef();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -81,13 +78,8 @@ function Header() {
                 <div
                   key={link.label}
                   className="relative group"
-                  onMouseEnter={() => {
-                    clearTimeout(atsDropdownTimer.current);
-                    setAtsDropdownOpen(true);
-                  }}
-                  onMouseLeave={() => {
-                    atsDropdownTimer.current = setTimeout(() => setAtsDropdownOpen(false), 180);
-                  }}
+                  onMouseEnter={() => setAtsDropdownOpen(true)}
+                  onMouseLeave={() => setAtsDropdownOpen(false)}
                 >
                   <a
                     href={link.href}
@@ -101,14 +93,7 @@ function Header() {
                   </a>
                   {/* Dropdown */}
                   <div
-                    className={`absolute left-0 top-full mt-2 min-w-[180px] bg-white border border-gray-100 shadow-lg rounded-xl py-2 opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto pointer-events-none transition-all duration-200 z-50 ${atsDropdownOpen ? 'opacity-100 pointer-events-auto' : ''}`}
-                    onMouseEnter={() => {
-                      clearTimeout(atsDropdownTimer.current);
-                      setAtsDropdownOpen(true);
-                    }}
-                    onMouseLeave={() => {
-                      atsDropdownTimer.current = setTimeout(() => setAtsDropdownOpen(false), 180);
-                    }}
+                    className={`absolute left-0 top-full mt-2 min-w-[180px] bg-white border border-gray-100 shadow-lg rounded-xl py-2 z-50 ${atsDropdownOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} transition-all duration-200`}
                   >
                     {link.dropdown.map((item) => (
                       <a
@@ -128,13 +113,8 @@ function Header() {
                 <div
                   key={link.label}
                   className="relative group"
-                  onMouseEnter={() => {
-                    clearTimeout(productsDropdownTimer.current);
-                    setProductsDropdownOpen(true);
-                  }}
-                  onMouseLeave={() => {
-                    productsDropdownTimer.current = setTimeout(() => setProductsDropdownOpen(false), 180);
-                  }}
+                  onMouseEnter={() => setProductsDropdownOpen(true)}
+                  onMouseLeave={() => setProductsDropdownOpen(false)}
                 >
                   <a
                     href={link.href}
@@ -148,14 +128,7 @@ function Header() {
                   </a>
                   {/* Dropdown */}
                   <div
-                    className={`absolute left-0 top-full mt-2 min-w-[200px] bg-white border border-gray-100 shadow-lg rounded-xl py-2 opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto pointer-events-none transition-all duration-200 z-50 ${productsDropdownOpen ? 'opacity-100 pointer-events-auto' : ''}`}
-                    onMouseEnter={() => {
-                      clearTimeout(productsDropdownTimer.current);
-                      setProductsDropdownOpen(true);
-                    }}
-                    onMouseLeave={() => {
-                      productsDropdownTimer.current = setTimeout(() => setProductsDropdownOpen(false), 180);
-                    }}
+                    className={`absolute left-0 top-full mt-2 min-w-[200px] bg-white border border-gray-100 shadow-lg rounded-xl py-2 z-50 ${productsDropdownOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} transition-all duration-200`}
                   >
                     {link.dropdown.map((item) => (
                       <a
@@ -175,13 +148,8 @@ function Header() {
                 <div
                   key={link.label}
                   className="relative group"
-                  onMouseEnter={() => {
-                    clearTimeout(consultationDropdownTimer.current);
-                    setConsultationDropdownOpen(true);
-                  }}
-                  onMouseLeave={() => {
-                    consultationDropdownTimer.current = setTimeout(() => setConsultationDropdownOpen(false), 180);
-                  }}
+                  onMouseEnter={() => setConsultationDropdownOpen(true)}
+                  onMouseLeave={() => setConsultationDropdownOpen(false)}
                 >
                   <a
                     href={link.href}
@@ -195,14 +163,7 @@ function Header() {
                   </a>
                   {/* Dropdown */}
                   <div
-                    className={`absolute left-0 top-full mt-2 min-w-[200px] bg-white border border-gray-100 shadow-lg rounded-xl py-2 opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto pointer-events-none transition-all duration-200 z-50 ${consultationDropdownOpen ? 'opacity-100 pointer-events-auto' : ''}`}
-                    onMouseEnter={() => {
-                      clearTimeout(consultationDropdownTimer.current);
-                      setConsultationDropdownOpen(true);
-                    }}
-                    onMouseLeave={() => {
-                      consultationDropdownTimer.current = setTimeout(() => setConsultationDropdownOpen(false), 180);
-                    }}
+                    className={`absolute left-0 top-full mt-2 min-w-[200px] bg-white border border-gray-100 shadow-lg rounded-xl py-2 z-50 ${consultationDropdownOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} transition-all duration-200`}
                   >
                     {link.dropdown.map((item) => (
                       <a
@@ -263,7 +224,7 @@ function Header() {
                 return (
                   <div key={link.label} className="flex flex-col">
                     <div className="flex items-center justify-between w-full font-medium py-2 px-3 rounded hover:bg-gray-100 transition">
-                      <a href={link.href} className="flex-1" onClick={() => setNavOpen(false)}>{link.label}</a>
+                      <Link to={link.href} className="flex-1" onClick={() => setNavOpen(false)}>{link.label}</Link>
                       <button
                         className="ml-2"
                         onClick={e => { e.preventDefault(); setMobileAtsDropdown((open) => !open); }}
@@ -274,14 +235,14 @@ function Header() {
                     {mobileAtsDropdown && (
                       <div className="pl-4 flex flex-col">
                         {link.dropdown.map((item) => (
-                          <a
+                          <Link
                             key={item.href}
-                            href={item.href}
+                            to={item.href}
                             className="py-2 px-3 rounded hover:bg-gray-50 transition text-sm"
                             onClick={() => setNavOpen(false)}
                           >
                             {item.label}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     )}
@@ -292,7 +253,7 @@ function Header() {
                 return (
                   <div key={link.label} className="flex flex-col">
                     <div className="flex items-center justify-between w-full font-medium py-2 px-3 rounded hover:bg-gray-100 transition">
-                      <a href={link.href} className="flex-1" onClick={() => setNavOpen(false)}>{link.label}</a>
+                      <Link to={link.href} className="flex-1" onClick={() => setNavOpen(false)}>{link.label}</Link>
                       <button
                         className="ml-2"
                         onClick={e => { e.preventDefault(); setMobileProductsDropdown((open) => !open); }}
@@ -303,14 +264,14 @@ function Header() {
                     {mobileProductsDropdown && (
                       <div className="pl-4 flex flex-col">
                         {link.dropdown.map((item) => (
-                          <a
+                          <Link
                             key={item.href}
-                            href={item.href}
+                            to={item.href}
                             className="py-2 px-3 rounded hover:bg-gray-50 transition text-sm"
                             onClick={() => setNavOpen(false)}
                           >
                             {item.label}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     )}
@@ -321,7 +282,7 @@ function Header() {
                 return (
                   <div key={link.label} className="flex flex-col">
                     <div className="flex items-center justify-between w-full font-medium py-2 px-3 rounded hover:bg-gray-100 transition">
-                      <a href={link.href} className="flex-1" onClick={() => setNavOpen(false)}>{link.label}</a>
+                      <Link to={link.href} className="flex-1" onClick={() => setNavOpen(false)}>{link.label}</Link>
                       <button
                         className="ml-2"
                         onClick={e => { e.preventDefault(); setMobileConsultationDropdown((open) => !open); }}
@@ -332,14 +293,14 @@ function Header() {
                     {mobileConsultationDropdown && (
                       <div className="pl-4 flex flex-col">
                         {link.dropdown.map((item) => (
-                          <a
+                          <Link
                             key={item.href}
-                            href={item.href}
+                            to={item.href}
                             className="py-2 px-3 rounded hover:bg-gray-50 transition text-sm"
                             onClick={() => setNavOpen(false)}
                           >
                             {item.label}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     )}
@@ -348,25 +309,26 @@ function Header() {
               }
               if (link.label === 'CONTACT US') {
                 return (
-                  <a
+                  <Link
                     key={link.href}
+                    to={link.href}
                     className="block font-sans font-semibold py-1.5 px-3 rounded bg-orange-500 text-white shadow hover:bg-orange-600 transition mt-2 text-center text-sm"
                     onClick={() => setNavOpen(false)}
                     style={{ minWidth: '80px' }}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 );
               }
               return (
-                <a
+                <Link
                   key={link.href}
-                  href={link.href}
+                  to={link.href}
                   className="block font-medium py-2 px-3 rounded hover:bg-gray-100 transition"
                   onClick={() => setNavOpen(false)}
                 >
                   {link.label}
-                </a>
+                </Link>
               );
             })}
           </div>

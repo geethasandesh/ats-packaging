@@ -29,7 +29,7 @@ const cardData = [
   {
     title: "Capping Machines",
     text: "High-speed, precision capping for all container types.",
-    link: "/products/capping",
+    link: "/capping-machines",
     bottomIcon: <CappingIcon />,
   },
   {

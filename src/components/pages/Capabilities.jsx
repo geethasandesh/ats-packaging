@@ -1,5 +1,6 @@
 import React from 'react';
- 
+import { Link } from 'react-router-dom';
+
 const capabilities = [
   {
     title: 'Capping Machines',
@@ -37,43 +38,41 @@ const capabilities = [
     link: '/products/food-beverage-lines',
     image: '/images/6.jpg',
   },
- 
- 
 ];
- 
+
 function CapabilityCard({ title, description, link, image }) {
   return (
-    <div className="relative bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-2xl transition-shadow flex flex-col overflow-hidden group max-w-sm mx-auto">
+    <div className="relative bg-white rounded-2xl border border-[#8f0d09] shadow-lg hover:shadow-2xl transition-shadow flex flex-col overflow-hidden group max-w-sm mx-auto">
       {/* Image section */}
-      <div className="relative w-full h-60 bg-gradient-to-tr from-gray-100 via-gray-200 to-gray-50 flex items-center justify-center">
+      <div className="relative w-full h-56 bg-gradient-to-tr from-[#f8eaea] via-gray-100 to-gray-50 flex items-center justify-center overflow-hidden">
         <img src={image} alt={title} className="w-full h-full object-cover rounded-t-2xl transition-transform duration-300 ease-in-out group-hover:scale-105" />
-        {/* Top-right action button */}
-        <a href={link} className="absolute top-4 right-4 bg-white rounded-full w-14 h-14 flex items-center justify-center shadow-md border border-gray-200 group-hover:scale-110 transition-transform z-10">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563eb" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-        </a>
+        {/* Top-left action button */}
+        <Link to={link} className="absolute top-4 left-4 bg-white/90 rounded-full w-12 h-12 flex items-center justify-center shadow-md border border-[#8f0d09] group-hover:scale-110 transition-transform z-10">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8f0d09" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+        </Link>
       </div>
       {/* Content section */}
-      <div className="flex-1 bg-gray-50 p-4 flex flex-col">
-        <h3 className="text-xl font-bold mb-2 text-gray-900">{title}</h3>
-        <p className="text-gray-700 text-base leading-relaxed">{description}</p>
-        <div className="flex flex-1 items-end">
-          <a href={link} className="mt-4 inline-flex items-center gap-1 text-[#8f0d09] font-semibold text-sm hover:underline transition-colors whitespace-nowrap self-start">
+      <div className="flex-1 bg-white p-6 flex flex-col">
+        <h3 className="text-xl font-bold mb-2 text-[#8f0d09] text-center">{title}</h3>
+        <p className="text-gray-700 text-base leading-relaxed text-center mb-6">{description}</p>
+        <div className="flex flex-1 items-end justify-center">
+          <Link to={link} className="mt-auto inline-flex items-center gap-1 px-5 py-2 rounded-lg bg-[#8f0d09] text-white font-semibold shadow hover:bg-[#a91a1a] transition-colors text-sm">
             View More
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8f0d09" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-          </a>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </Link>
         </div>
       </div>
     </div>
   );
 }
- 
+
 export default function Capabilities() {
   return (
-    <section className="w-full py-16 bg-white flex flex-col items-center">
+    <section className="w-full py-16 bg-gradient-to-br from-blue-50 via-white to-purple-50 flex flex-col items-center">
       <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-10 text-[#8f0d09]">
         Our Capabilities
       </h2>
-      <div className="max-w-7xl w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 px-4">
+      <div className="max-w-7xl w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-4">
         {capabilities.map((cap, idx) => (
           <CapabilityCard key={idx} {...cap} />
         ))}

@@ -35,12 +35,7 @@ const HeroVideo = () => {
             <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 text-left">
               Advanced <span className="text-[#8f0d09]">Tooling</span><br className="hidden md:block" /> Systems
             </h1>
-            <div className="flex flex-row flex-wrap gap-4 mb-6">
-             
-              <button className="text-[#8f0d09] border border-[#8f0d09] font-semibold px-6 py-3 rounded-full flex items-center gap-2 hover:bg-[#f8eaea] transition-colors bg-white">
-                View More <span>→</span>
-              </button>
-            </div>
+            
           </div>
           {/* Right: Supporting text, subheadline, avatars, reviews */}
           <div className="flex-1 flex flex-col items-end justify-center">
@@ -67,7 +62,7 @@ const HeroVideo = () => {
             <button
               onClick={handleMuteToggle}
               aria-label={muted ? 'Unmute video' : 'Mute video'}
-              className="absolute bottom-4 left-4 bg-black/60 hover:bg-black/80 text-white rounded-full p-2 text-xl transition-colors focus:outline-none focus:ring-2 focus:ring-white"
+              className="absolute bottom-4 left-4 bg-black/60 hover:bg-black/80 text-white rounded-full p-2 z-10 text-xl transition-colors focus:outline-none focus:ring-2 focus:ring-white"
             >
               {muted ? '🔇' : '🔊'}
             </button>
