@@ -12,6 +12,21 @@ IconEmpathize,
   IconPillFilled
 ,
 } from "@tabler/icons-react";
+import pharmaImg from '../../assets/Sectors/pharma.jpg';
+import autoImg from '../../assets/Sectors/auto.jpg';
+import foodImg from '../../assets/Sectors/food.jpg';
+import medicineImg from '../../assets/Sectors/medicine.jpg';
+import homeCareImg from '../../assets/Sectors/home care.jpg';
+import personalCareImg from '../../assets/Sectors/personal care.jpg';
+
+const sectorIllustrations = [
+  pharmaImg,        // Pharmaceutical
+  autoImg,          // Automotive
+  foodImg,          // Food & Beverage
+  medicineImg,      // Medical
+  homeCareImg,      // Home Care
+  personalCareImg,  // Personal Care
+];
 
 export function SectorsCarousel() {
   const features = [
@@ -58,7 +73,7 @@ export function SectorsCarousel() {
     <section className="w-full py-12 px-4 md:px-8">
       <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-10 text-[#8f0d09]">Sectors We Work In</h2>
       <div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  relative z-10 py-10 max-w-7xl mx-auto">
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 relative z-10 py-10 max-w-7xl mx-auto">
         {features.map((feature, index) => (
           <Feature key={feature.title} {...feature} index={index} />
         ))}
@@ -76,36 +91,44 @@ const Feature = ({
   return (
     <div
       className={cn(
-        // Card-like background and shadow for mobile
-        "flex flex-col items-center py-6 px-4 mb-6 bg-white rounded-2xl shadow-md border border-neutral-100 relative group/feature dark:border-neutral-800 transition-all duration-200",
-        // Add left border except for the 4th card (index 4) on large screens
+        "flex flex-col justify-between py-0 px-0 mb-8 bg-white rounded-2xl shadow-md border border-neutral-100 relative group/feature dark:border-neutral-800 transition-all duration-200 overflow-hidden",
         index !== 4 && "lg:border-l dark:border-neutral-800",
-        // Add right border except for 3rd and 6th cards (index 2 and 5) on large screens
         (index === 0 || (![2, 5].includes(index))) && "lg:border-r dark:border-neutral-800",
-        // Add bottom border for first row only on large screens
         index < 3 && "lg:border-b dark:border-neutral-800"
-      )}>
-      {/* Icon - larger and centered on mobile */}
-      <div className="mb-4 mt-2 relative z-10 flex items-center justify-center w-16 h-16 md:w-14 md:h-14 text-[#8f0d09] bg-[#f8eaea] rounded-full shadow-sm">
-        <span className="text-3xl md:text-2xl">{icon}</span>
-      </div>
-      {/* Title */}
-      <div className="text-base md:text-lg font-bold mb-2 relative z-10 text-center px-2 text-neutral-800 dark:text-neutral-100">
-        {title}
-      </div>
-      {/* Description */}
-      <p className="text-sm md:text-base text-neutral-600 dark:text-neutral-300 text-center max-w-xs relative z-10 px-2">
-        {description}
-      </p>
-      {/* Decorative hover overlays for desktop only */}
-      {(index < 3) && (
-        <div
-          className="opacity-0 md:group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-100 dark:from-neutral-800 to-transparent pointer-events-none rounded-2xl" />
       )}
-      {(index >= 3) && (
-        <div
-          className="opacity-0 md:group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 dark:from-neutral-800 to-transparent pointer-events-none rounded-2xl" />
-      )}
+      style={{
+        borderLeft: (window.innerWidth < 1024) ? 'none' : undefined,
+        borderRight: (window.innerWidth < 1024) ? 'none' : undefined,
+        borderBottom: (window.innerWidth < 1024) ? 'none' : undefined,
+        background: '#fff',
+        boxShadow: '0 2px 12px 0 rgba(31,72,120,0.07)',
+        minHeight: '320px',
+        minWidth: 0,
+        maxWidth: '100%',
+      }}
+    >
+      {/* Top half: Full-width image */}
+      <div className="w-full h-40 md:h-44 lg:h-48 flex-shrink-0">
+        <img
+          src={sectorIllustrations[index]}
+          alt={title + ' illustration'}
+          className="w-full h-full object-cover rounded-t-2xl"
+          loading="lazy"
+        />
+      </div>
+      {/* Bottom half: Content */}
+      <div className="flex flex-col items-center justify-center py-5 px-4">
+        <div className="mb-2 relative z-10 flex items-center justify-center w-10 h-10 text-[#8f0d09] bg-[#f8eaea] rounded-full shadow-sm">
+          <span className="text-xl">{icon}</span>
+        </div>
+        <div className="text-base font-bold mb-1 relative z-10 text-center px-2 text-neutral-900 dark:text-neutral-100" style={{letterSpacing: '0.01em'}}>
+          {title}
+        </div>
+        <p className="text-sm text-neutral-700 dark:text-neutral-300 text-center max-w-xs relative z-10 px-2" style={{fontWeight: 400}}>
+          {description}
+        </p>
+      </div>
+      {/* No hover overlays */}
     </div>
   );
 };
