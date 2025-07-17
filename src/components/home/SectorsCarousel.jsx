@@ -76,38 +76,36 @@ const Feature = ({
   return (
     <div
       className={cn(
-        "flex flex-col py-10 relative group/feature dark:border-neutral-800",
-        // Add left border except for the 4th card (index 4)
+        // Card-like background and shadow for mobile
+        "flex flex-col items-center py-6 px-4 mb-6 bg-white rounded-2xl shadow-md border border-neutral-100 relative group/feature dark:border-neutral-800 transition-all duration-200",
+        // Add left border except for the 4th card (index 4) on large screens
         index !== 4 && "lg:border-l dark:border-neutral-800",
-        // Add right border except for 3rd and 6th cards (index 2 and 5)
+        // Add right border except for 3rd and 6th cards (index 2 and 5) on large screens
         (index === 0 || (![2, 5].includes(index))) && "lg:border-r dark:border-neutral-800",
-        // Add bottom border for first row only
+        // Add bottom border for first row only on large screens
         index < 3 && "lg:border-b dark:border-neutral-800"
       )}>
+      {/* Icon - larger and centered on mobile */}
+      <div className="mb-4 mt-2 relative z-10 flex items-center justify-center w-16 h-16 md:w-14 md:h-14 text-[#8f0d09] bg-[#f8eaea] rounded-full shadow-sm">
+        <span className="text-3xl md:text-2xl">{icon}</span>
+      </div>
+      {/* Title */}
+      <div className="text-base md:text-lg font-bold mb-2 relative z-10 text-center px-2 text-neutral-800 dark:text-neutral-100">
+        {title}
+      </div>
+      {/* Description */}
+      <p className="text-sm md:text-base text-neutral-600 dark:text-neutral-300 text-center max-w-xs relative z-10 px-2">
+        {description}
+      </p>
+      {/* Decorative hover overlays for desktop only */}
       {(index < 3) && (
         <div
-          className="opacity-0 md:group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-100 dark:from-neutral-800 to-transparent pointer-events-none" />
+          className="opacity-0 md:group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-100 dark:from-neutral-800 to-transparent pointer-events-none rounded-2xl" />
       )}
       {(index >= 3) && (
         <div
-          className="opacity-0 md:group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 dark:from-neutral-800 to-transparent pointer-events-none" />
+          className="opacity-0 md:group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 dark:from-neutral-800 to-transparent pointer-events-none rounded-2xl" />
       )}
-      <div
-        className="mb-4 relative z-10 px-10 text-neutral-600 dark:text-neutral-400">
-        {icon}
-      </div>
-      <div className="text-lg font-bold mb-2 relative z-10 px-10">
-        <div
-          className="absolute left-0 inset-y-0 h-6 md:group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-300 dark:bg-neutral-700 md:group-hover/feature:bg-[#8f0d09] transition-all duration-200 origin-center" />
-        <span
-          className="md:group-hover/feature:translate-x-2 transition duration-200 inline-block text-neutral-800 dark:text-neutral-100">
-          {title}
-        </span>
-      </div>
-      <p
-        className="text-sm text-neutral-600 dark:text-neutral-300 max-w-xs relative z-10 px-10">
-        {description}
-      </p>
     </div>
   );
 };
