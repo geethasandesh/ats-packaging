@@ -35,31 +35,31 @@ const cardData = [
   {
     title: "Bottle Unscramblers",
     text: "Versatile unscramblers for multiple container formats.",
-    link: "/products/unscramblers",
+    link: "/unscramblers",
     bottomIcon: <BottleIcon />,
   },
   {
     title: "Pump & Trigger Feeding Systems",
     text: "Automated feeding for pumps, triggers, and closures.",
-    link: "/products/pump-feeding",
+    link: "/pump-feeding",
     bottomIcon: <PumpIcon />,
   },
   {
     title: "Turnkey Filling Lines",
     text: "Complete filling solutions for every industry.",
-    link: "/products/turnkey",
+    link: "/turnkey",
     bottomIcon: <TurnkeyIcon />,
   },
   {
     title: "Bespoke Packaging Solutions",
     text: "Custom-engineered packaging lines for unique needs.",
-    link: "/products/bespoke",
+    link: "/bespoke",
     bottomIcon: <BespokeIcon />,
   },
   {
     title: "Food & Beverage Lines (FBL)",
     text: "Specialized lines for food and beverage packaging.",
-    link: "/products/fbl",
+    link: "/fbl",
     bottomIcon: <FBLIcon />,
   },
   {

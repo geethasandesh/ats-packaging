@@ -5,37 +5,37 @@ const capabilities = [
   {
     title: 'Capping Machines',
     description: 'Complete range for all applications: linear, rotary, pump/spray trigger tightening, and more.',
-    link: '/products/capping-machines',
+    link: '/capping-machines',
     image: '/images/1.jpg',
   },
   {
     title: 'Bottle Unscramblers',
     description: 'Versatile systems for sorting and orientating multiple container formats.',
-    link: '/products/bottle-unscramblers',
+    link: '/bottle-unscramblers',
     image: '/images/2.jpg',
   },
   {
     title: 'Pump & Trigger Feeding',
     description: 'Precision feeding systems for pumps and triggers, up to 300upm.',
-    link: '/products/pump-trigger',
+    link: '/pump-trigger',
     image: '/images/3.jpg',
   },
   {
     title: 'Turnkey Filling Lines',
     description: 'Complete filling line solutions from 10ml to 200-litre with diverse filling technologies.',
-    link: '/products/turnkey-filling-lines',
+    link: '/turnkey-filling-lines',
     image: '/images/4.jpg',
   },
   {
     title: 'Bespoke Packaging Solutions',
     description: 'Custom automation, conveyors, ultrasonic welding, assembly systems, and more.',
-    link: '/products/bespoke-packaging',
+    link: '/bespoke-packaging',
     image: '/images/5.jpg',
   },
   {
     title: 'Food & Beverage Lines (FBL)',
     description: 'The most complete range of food manufacturing machinery in the UK & Ireland.',
-    link: '/products/food-beverage-lines',
+    link: '/food-beverage-lines',
     image: '/images/6.jpg',
   },
 ];
