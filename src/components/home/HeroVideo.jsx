@@ -23,7 +23,7 @@ const HeroVideo = () => {
   return (
     <section className="w-full max-w-full overflow-x-hidden flex flex-col items-center justify-center pb-0 mx-auto relative">
       {/* Grid background as absolute layer */}
-      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none hidden md:block">
         <GridBackgroundDemo />
       </div>
       {/* Hero content above background */}
