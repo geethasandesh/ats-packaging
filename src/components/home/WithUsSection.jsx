@@ -2,7 +2,7 @@ import React from "react";
 
 const WithUsCards = [
   {
-    title: "Trusted by Global Brands",
+    title: "Trusted by Global Brands ",
     description: "We partner with industry leaders to deliver world-class packaging solutions.",
     icon: (
       <svg width="38" height="38" fill="none" viewBox="0 0 48 48">
@@ -39,7 +39,7 @@ const WithUsCards = [
 export default function WithUsSection() {
   return (
     <div className="w-full max-w-7xl mx-auto mb-10 px-4">
-      <h2 className="text-2xl md:text-3xl font-extrabold text-center mb-8 bg-gradient-to-r from-blue-700 via-blue-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg">
+      <h2 className="text-2xl md:text-3xl font-extrabold text-center mb-8 text-[#8f0d09] drop-shadow-lg">
         We Are With You
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -52,7 +52,7 @@ export default function WithUsSection() {
             }}
           >
             <div className="mb-4">{card.icon}</div>
-            <h3 className="text-lg font-bold mb-2 text-blue-800 group-hover:text-blue-600 transition-colors">{card.title}</h3>
+            <h3 className="text-lg font-bold mb-2 text-[#8f0d09] group-hover:text-[#a91a1a] transition-colors">{card.title}</h3>
             <p className="text-gray-600">{card.description}</p>
           </div>
         ))}

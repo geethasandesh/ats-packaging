@@ -194,7 +194,7 @@ function Header() {
         <div className="hidden md:flex items-center ml-2">
           <a
             href="/contact"
-            className="px-3 py-1.5 text-white font-sans font-semibold rounded bg-orange-500 hover:bg-orange-600 transition-colors shadow text-sm"
+            className="px-3 py-1.5 text-white font-sans font-semibold rounded bg-[#8f0d09] hover:bg-[#a91a1a] transition-colors shadow text-sm"
             style={{ minWidth: '80px', textAlign: 'center' }}
           >
             CONTACT US
@@ -312,7 +312,7 @@ function Header() {
                   <Link
                     key={link.href}
                     to={link.href}
-                    className="block font-sans font-semibold py-1.5 px-3 rounded bg-orange-500 text-white shadow hover:bg-orange-600 transition mt-2 text-center text-sm"
+                    className="block font-sans font-semibold py-1.5 px-3 rounded bg-[#8f0d09] text-white shadow hover:bg-[#a91a1a] transition mt-2 text-center text-sm"
                     onClick={() => setNavOpen(false)}
                     style={{ minWidth: '80px' }}
                   >
