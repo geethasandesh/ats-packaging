@@ -38,11 +38,11 @@ function Header() {
       href: '/products',
       dropdown: [
         { href: '/capping-machines', label: 'Capping Machines' },
-        { href: '/bottle-unscramblers', label: 'Bottle Unscramblers' },
-        { href: '/pump-trigger', label: 'Pump Trigger' },
-        { href: '/trunkey-lines', label: 'Trunkey' },
-        { href: '/bespoke-packaging', label: 'Bespoke Packaging' },
-        { href: '/food', label: 'Food' },
+        { href: '/bottle-unscramblers', label: 'Bottle Unscramblers ' },
+        { href: '/pump-trigger', label: 'Pump & Trigger Feeding System' },
+        { href: '/trunkey-lines', label: 'Trunkey Filling Lines' },
+        { href: '/bespoke-packaging', label: 'Bespoke Packaging Solutions' },
+        { href: '/food', label: 'Food & Beverage Lines (FBL)' },
       ],
     },
     {
